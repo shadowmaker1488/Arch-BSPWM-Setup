@@ -6,6 +6,7 @@
 super + Return
 	kitty
 
+
 # browser
 super + b
 	firefox
@@ -17,6 +18,10 @@ super + m
 #rofi apps	
 super + shift + f
 	rofi -show drun
+
+# reload polybar
+super + shift + r
+	~/.config/polybar/reload.sh
 
 # yazi
 super + d
@@ -47,7 +52,7 @@ super + shift + c
 
 # wallpapers
 super + w 
-	~/.config/rofi/scripts/wallpaper-feh.sh
+	waypaper
 
 # onlyoffice
 super + o
@@ -68,7 +73,7 @@ super + shift + c
 
 # make sxhkd reload its configuration files:
 super + shift + Escape
-	pkill -USR1 -x sxhkd 
+	pkill -USR1 -x sxhkd && bspc wm -r
 
 #
 # bspwm hotkeys
@@ -94,6 +99,10 @@ super + v
 super + f
 	bspc node -t \~fullscreen
 
+#rotate desktop
+super + r
+	bspc node @/ --rotate {90,-90}
+
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -107,7 +116,7 @@ super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+super + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -129,18 +138,20 @@ super + {_,shift + }{1-9,0}
 # move/resize
 #
 
-# expand a window by moving one of its side outward
+# resize windows
 super + control + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+  bspc node -z {left -40 0 || bspc node -z right -40 0, \
+                bottom 0 40 || bspc node -z top 0 40,\
+                top 0 -40 || bspc node -z bottom 0 -40,\
+                right 40 0 || bspc node -z left 40 0}
 
-# contract a window by moving one of its side inward
+
+# resize floating windows
 super + control + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
+  bspc node -v {left -40 0 || bspc node -z right -40 0, \
+                bottom 0 40 || bspc node -z top 0 40,\
+                top 0 -40 || bspc node -z bottom 0 -40,\
+                right 40 0 || bspc node -z left 40 0}
 # media keys
 XF86AudioPlay
 	playerctl play-pause
@@ -160,6 +171,9 @@ XF86AudioStop
 XF86AudioMicMute
 	pactl set-source-mute 0 toggle
 
+# move a floating window
+super + shift + {h,j,k,l}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Volume & brightness & media keys
 XF86AudioRaiseVolume 

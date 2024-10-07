@@ -1,0 +1,9 @@
+playerctld daemon &
+exec udiskie &
+dunst &
+setxkbmap -layout cz &
+exec /usr/bin/lxqt-policykit-agent &
+ ~/.fehbg & 
+ numlockx &
+exec deluged &
+exec bspwm

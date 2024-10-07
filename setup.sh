@@ -19,12 +19,16 @@ yay -S adobe-source-han-sans-cn-fonts --noconfirm
 yay -S adobe-source-han-sans-jp-fonts  --noconfirm
 yay -S adobe-source-han-sans-kr-fonts --noconfirm
 yay -S atool --noconfirm
+yay -S tdrop --noconfirm
 yay -S xdotool --noconfirm
+yay -S playerctl --noconfirm
 yay -S libinput-gestures --noconfirm
 yay -S bat --noconfirm
 yay -S tree --noconfirm
 yay -S blueman --noconfirm
 yay -S breeze --noconfirm
+yay -S bspwm --noconfirm
+yay -S bsp-layout --noconfirm
 yay -S gdu --noconfirm
 yay -S numlockx --noconfirm
 yay -S ncspot --noconfirm 
@@ -37,11 +41,7 @@ yay -S dragon-drop-git --noconfirm
 yay -S downgrade --noconfirm
 yay -S swww --noconfirm
 yay -S udiskie --noconfirm
-yay -S hyprland-git --noconfirm
-yay -S pyprland --noconfirm
 yay -S betterlockscreen --noconfirm
-yay -S hypridle --noconfirm
-yay -S xdg-desktop-portal-hyprland --noconfirm
 yay -S lxqt-policykit --noconfirm
 yay -S trashy --noconfirm
 yay -S subliminal --noconfirm
@@ -50,7 +50,6 @@ yay -S dunst --noconfirm
 yay -S simple-mtpfs --noconfirm
 yay -S brightnessctl --noconfirm
 yay -S cantarell-fonts --noconfirm
-yay -S xdg-desktop-portal-gtk --noconfirm
 yay -S pulsemixer --noconfirm
 yay -S calcurse --noconfirm
 yay -S flameshot --noconfirm
@@ -136,7 +135,6 @@ sudo systemctl enable betterlockscreen@$USER
 sudo systemctl enable reflector.timer
 sudo systemctl mask systemd-rfkill.service 
 sudo systemctl mask systemd-rfkill.socket
-sudo systemctl enable betterlockscreen@.service  
 
 # set default xdg
 # Onlyoffice
